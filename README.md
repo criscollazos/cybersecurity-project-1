@@ -35,6 +35,13 @@ The configuration details of each machine may be found below:
 | Web-3                | DVWA Containers  | 10.0.0.14  | Linux            |
 | ELK                  | Configuration VM | 10.1.0.4   | Linux            |
 ```
+```git
+| Applications Used | Versions                             |
+|-------------------|--------------------------------------|
+| Docker            | version 19.03.6                      |
+| filebeat          | version 7.4.0 (amd64), libbeat 7.4.0 |
+| metricbeat        | version 7.4.0 (amd64), libbeat 7.4.0 |
+```
 
 ### Access Policies
 
@@ -44,7 +51,7 @@ Only the Jump Box machine can accept connections from the Internet. Access to th
 - 76.171.145.84 - my personal machine.
 
 Machines within the network can only be accessed by accessing the DVWA container in the Jump Box VM.
-- The only machine that can access the ELK server is 76.171.145.84 - my personal machine.
+- The only machines that can access the ELK server are 76.171.145.84 - my personal machine, and the Jump Box VM at IP 10.0.0.7 through a peering connection.
 
 A summary of the access policies in place can be found in the table below:
 ```git
@@ -54,7 +61,7 @@ A summary of the access policies in place can be found in the table below:
 | Web-1                | No                  | 10.0.0.7                |
 | Web-2                | No                  | 10.0.0.7                |
 | Web-3                | No                  | 10.0.0.7                |
-| ELK                  | Yes                 | 10.0.0.7, 76.171.145.84 |
+| ELK                  | No                  | 10.0.0.7, 76.171.145.84 |
 ```
 
 ### ELK Configuration
@@ -66,6 +73,7 @@ The playbook implements the following tasks:
 - Install Docker
 - Download Image
 - Configure container
+- Create playbook to install container with docker and Filebeat and Metricbeat.
 - Run playbook to launch the container
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.

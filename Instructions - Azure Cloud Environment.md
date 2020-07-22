@@ -63,7 +63,7 @@
 - Use a public SSH key from the Jump-Box VM docker container and give it a username you will remember.
   - Use "ssh-keygen" to create a public key if you don't have one.
   - My username is **sysadmin**.
-![Image](https://www.dropbox.com/s/hz9i8extb66ppgx/SyMsK791w_BySqoyBlw.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_7.png)
 - To make sure it works:
   - SSH into the Jump Box VM
   - Start and attach your docker container: `sudo docker start dvwa && sudo docker attack dvwa`
@@ -76,12 +76,12 @@
 - Select static IP address and select same Resource Group and region.
 - Select create new public IP address.
 - I named my Load Balancer: **Red-Team-LB**
-![Image](https://www.dropbox.com/s/jurugzdeu64c255/SyMsK791w_H1W3Abrxw.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_8.png)
 - Once the Load Balancer is created, add a new Health Probe (use the default settings):
 
-![Image](https://www.dropbox.com/s/x1h3cqz9ohgkvoa/SyMsK791w_S1Sg1Grgw.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_9.png)
 - Create a new Backend Pool and add the 3 VMs to it.
-![Image](https://www.dropbox.com/s/ao73okv62tdg1ao/SyMsK791w_HJJrkzrxP.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_10.png)
 
 ## 4) Logging into Jump Box Provisioner
 - Log in to Azure and turn on your Jump Box Provisioner virtual machine.
@@ -141,13 +141,13 @@ root@b1dea65e61f4:~#
 ### Create a new VNet (Virtual Network)
 - Create a new VNet that is in the same resource group (RedTeam) but in a different region.
 - I created one and named it EastNet:
-![Image](https://www.dropbox.com/s/9nmfvgco49ilva3/SyMsK791w_SyNS6xhJP.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_11.png)
 
 - Create a peer connection between the two VNets (RedNet and EastNet)
 - In my EastNet page, I clicked on **Peerings** and added a new Peering with the following settings:
   - I created a new connection from EastNet to RedNet and called it: **Elk-to-Red**, connecting to my **RedNet** VNet.
   - I created another connection from RedNet to EastNet and called it: **Red-to-Elk**.
-![Image](https://www.dropbox.com/s/yb9xtjmo7gvl85v/SyMsK791w_Bkz-RenJD.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_12.png)
 ### Create a new Virtual Machine
 - Create a new Ubuntu VM with a 4GB minimum RAM size.
 - The IP address will be public.

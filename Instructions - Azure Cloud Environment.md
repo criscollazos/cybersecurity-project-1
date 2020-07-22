@@ -155,11 +155,11 @@ root@b1dea65e61f4:~#
 - The VNet will be **EastNet**, and the resource group will be the one we have for the other VMs, which is **RedTeam**.
 - I used the public key from the ansible container and my username as **sysadmin**.
 - I named my VM: **ELK**.
-![Image](https://www.dropbox.com/s/31ivo96dytk19c3/SyMsK791w_Hy2WE-2kD.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_13.png)
 
-![Image](https://www.dropbox.com/s/2yh1hq3wvwsxiqv/SyMsK791w_rJ7Y4-31v.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_14.png)
 
-![Image](https://www.dropbox.com/s/ad2n1dje920bde4/SyMsK791w_B112NWnyP.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_15.png)
 - Once the VM is created, I ssh'd into the VM to make sure it works:
 ```bash
 root@b1dea65e61f4:/etc/ansible# ssh sysadmin@10.1.0.4
@@ -284,15 +284,15 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 - As we can see from above, the container was successfully created, with the image "sebp/elk:761".
 ### Identity and Access Management
 - We are going to restrict access to the ELK VM through the **ELK Network Security Group**:
-![Image](https://www.dropbox.com/s/pw0evnc2sav0c30/SyMsK791w_HJ0b9Z2kw.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_16.png)
 
 - Once in the NSG for ELK, we are going to add an inbound rule that will allow access from our computer to the ELK server on **port 5601**:
-![Image](https://www.dropbox.com/s/e8jpnca6l78zklm/SyMsK791w_B10B9b2Jw.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_17.png)
 - Next, we will add another security rule that will **restrict all access** to the ELK server, with a higher priority number:
-![Image](https://www.dropbox.com/s/55mw84fuu6a94lx/SyMsK791w_ryoo5b2JP.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_18.png)
 - Finally, we will verify that we can log into the server by accessing on our browser, **[ELK-public-IP]:5601/app/kibana**:
   - Note: the public IP will always change every time we restart it.
-![Image](https://www.dropbox.com/s/d4jpjo0hjv5xhi4/SyMsK791w_S1KEjZn1w.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_19.png)
 ## 7) Install Filebeat
 - We can use Filebeat to collect, parse, and visualize ELK logs in a single command. This will help us better track our organizational goals.
 ### Install Filebeat on the DVWA container
@@ -306,7 +306,7 @@ azadmin@Jump-Box-Provisioner:~$ sudo docker attach dvwa
 root@b1dea65e61f4:~# 
 ```
 - I jumped back to the kibana page and found the DEB page for creating a system log and will use this guide to create our filebeat playbook.
-![Image](https://www.dropbox.com/s/3sc9zs6qmfsze16/SyMsK791w_HyKR9olev.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_20.png)
 
 ### Create Filebeat configuration file
 - I created a folder called files in /etc/ansible of the container:
@@ -426,11 +426,11 @@ PLAY RECAP *********************************************************************
 ```
 ### Verify Installation and Playbook
 - Back on the kibana page, I will check the data on the instruction page:
-![Image](https://www.dropbox.com/s/pxto7o540jl5pll/SyMsK791w_rJCXEoexD.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_21.png)
 - Finally, I checked the dashboard to make sure things are running:
-![Image](https://www.dropbox.com/s/im3giqimpvsw5fh/SyMsK791w_Bkqxroexv.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_22.png)
 
-![Image](https://www.dropbox.com/s/iwcl24qww3xje3h/SyMsK791w_Sy1fSjlgw.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_23.png)
 ### Create a play to install Metricbeat
 - Using the same steps for Filebeat, I created a config file for Metricbeat and added ELK's private IP in two areas:
 ```bash
@@ -528,9 +528,9 @@ PLAY RECAP *********************************************************************
 10.0.0.14                  : ok=7    changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
 ```
 - Now that the playbook ran successfully, I will check the data on the kibana page:
-![Image](https://www.dropbox.com/s/q9dh7ct8ufr5ds1/SyMsK791w_BkzWKsxxD.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_24.png)
 - Finally, we will check the dashboard, to make sure it works:
 
-![Image](https://www.dropbox.com/s/hp4bpdak2re3bjn/SyMsK791w_ryWkFjelP.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_25.png)
 
-![Image](https://www.dropbox.com/s/j1yw4xk1qaqr5se/SyMsK791w_rkYttiglw.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_26.png)

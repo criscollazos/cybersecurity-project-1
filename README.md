@@ -105,4 +105,4 @@ curl https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/r
 - Run the filebeat-playbook.yml playbook, and navigate to the kibana page at [ELK public IP]/app/kibana to check that the installation worked as expected.
 
 More comprehensive information on running the Azure Cloud Environment in the instructions below:
-[insert link here]
+[Cloud Environment Instructions](https://github.com/criscollazos/cybersecurity-project-1/blob/master/Instructions%20-%20Azure%20Cloud%20Environment.md)

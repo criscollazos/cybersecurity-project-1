@@ -90,8 +90,12 @@ We have installed the following Beats on these machines:
 - Metricbeat
 
 These Beats allow us to collect the following information from each machine:
-- **Filebeat** monitors the log files or locations that you specify, collects log events, and forwards them either to Elasticsearch or Logstash for indexing.
-- **Metricbeat** periodically collect metrics from the operating system and from services running on the server. Metricbeat takes the metrics and statistics that it collects and ships them to the output that you specify, such as Elasticsearch or Logstash.
+- **Filebeat** monitors the log files or locations that you specify, collects log events, and forwards them either to Elasticsearch or Logstash for indexing. When Filebeat starts logging, it will represent data such as system log events in a dashboard:
+![](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/kibana_1.png)
+![](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/kibana_2.png)
+- **Metricbeat** periodically collect metrics from the operating system and from services running on the server. Metricbeat takes the metrics and statistics that it collects and ships them to the output that you specify, such as Elasticsearch or Logstash. Metricbeat will display information such as container CPU usage as follows:
+![](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/Kibana_3.png)
+![](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/kibana_4.png)
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 

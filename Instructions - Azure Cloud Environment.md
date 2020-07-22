@@ -3,22 +3,22 @@
 ### Create Resource Group
 - Create a resource group and a region, I chose US West 2 region:
   - I named my Resource Group **RedTeam**.
-![Image](https://www.dropbox.com/s/6edm3zi55hqthgz/SyMsK791w_B1qxe0QeP.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_1.png)
 
 ### Create Vnet (Virtual Network)
 - Create a new Virtual Network.
 - Make sure to select the resource group we created previously as well as the same region:
   - Also, use the default IP and subnet settings.
-![Image](https://www.dropbox.com/s/fsw2ro55gyw6qve/SyMsK791w_BkmC207xD.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_2.png)
 ### Create a Network Security Group (NSG)
 - Create a Network Security Group that is part of the Resource Group RedTeam.
 - I named my NSG "**MyFirewall**".
 - Make sure the NSG is in the same region as everything else we've created thus far. 
 - Go to the Inbound Security Rules section in the NSG and click the add button to add a rule.
   - Create one rule blocks all traffic coming in with a high priority number.
-![Image](https://www.dropbox.com/s/kjs1osead40gzom/SyMsK791w_r1p3QxExP.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_3.png)
 
-![Image](https://www.dropbox.com/s/o706fn07z9z6dcd/SyMsK791w_H1zzEeVgD.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_4.png)
 ## 2) Create the Virtual Machines
 ### Create Jump Box VM
 - Log in to Azure account.
@@ -29,12 +29,12 @@
 - Use a public SSH key from your local computer and give it a username you will remember.
   - Use "ssh-keygen" to create a public key if you don't have one.
   - My username is **azadmin**.
-![Image](https://www.dropbox.com/s/0a8p1jf5zc1qf9i/SyMsK791w_rykqOAVev.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_5.png)
 
 ### Network Security Group Rules
 - This is an overview of all of the inbound rules for the MyFirewall NSG:
  
-![Image](https://www.dropbox.com/s/tpmytsy7inhs8ek/SyMsK791w_SyZ_BeSgP.png?dl=1)
+![Image](https://github.com/criscollazos/cybersecurity-project-1/blob/master/images/CE_6.png)
 
 ### Set up Docker.io on the Jump Box VM
 - SSH into your Jump-Box VM, turn on your machine on Azure before that: `ssh azadmin@[public IP]`
